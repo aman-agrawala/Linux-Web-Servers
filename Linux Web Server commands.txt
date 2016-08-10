@@ -63,3 +63,9 @@ To connect to the user: use ssh username@ip_address -p port_number. The ip_addre
 Another Authentication Method:
 Another method to for authentication is to use public and private key encryption.
 TO generate a key pair use: ssh-keygen. You wull first be asked to give a filename and what directory. /Users/Udacity/.ssh/linuxCourse. To install your ssh keys: first login to your users and then create a .ssh folder within home directory. Then create a new file called authorized_keys within the .ssh folder (touch .ssh/authorized_keys). This file shows all the keys that this account can use for authentication with one key per line. Open the .pub file created from the ssh-keygen command and copy that key into the authorized_keys file. Now set permissions onto the .ssh folder using: chmod 700 .ssh and chmod 644 .ssh/authorized_keys
+
+To force key based authentication:
+edit the sshd_config file (/etc/ssh/sshd_config) using sudo nano /etc/ssh/sshd_config. Change  PasswordAuthentication to no and save. Then you need to restart service so it re-reads that configuration file:  sudo service ssh restart
+
+File Permissions:
+d --- --- --- Each file has 3 pieces of information. The first d indicates a directory. If that d was a - it would mean its a file
