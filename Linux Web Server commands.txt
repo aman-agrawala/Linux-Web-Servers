@@ -69,3 +69,10 @@ edit the sshd_config file (/etc/ssh/sshd_config) using sudo nano /etc/ssh/sshd_c
 
 File Permissions:
 d --- --- --- Each file has 3 pieces of information. The first d indicates a directory. If that d was a - it would mean its a file. 
+
+The first set of --- represents the owner's permissions.
+The second set is for group.
+The third is for everyone.
+
+If the first set was rw-. This would mean that the owner can read and write the file. The - would mean that the owner cannot execute the file. IF the owner could execute the file it would look like: rwx.
+
