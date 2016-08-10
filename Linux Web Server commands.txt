@@ -67,3 +67,5 @@ TO generate a key pair use: ssh-keygen. You wull first be asked to give a filena
 To force key based authentication:
 edit the sshd_config file (/etc/ssh/sshd_config) using sudo nano /etc/ssh/sshd_config. Change  PasswordAuthentication to no and save. Then you need to restart service so it re-reads that configuration file:  sudo service ssh restart
 
+File Permissions:
+d --- --- --- Each file has 3 pieces of information. The first d indicates a directory. If that d was a - it would mean its a file. 
