@@ -51,3 +51,15 @@ Type finger to use it. It shows information about the users on the linux machine
 5. user ID info: Metadata about the user; phone, email, name, etc.
 6. home directory: Where the user is sent upon login. Generally /home/
 7. command/shell: The absolute path of a command or shell (usually /bin/bash). Does not have to be a shell though!
+
+Note: root user will always have 0 as user id and group id.
+
+
+User Management: 
+To add a user, use the adduser command: sudo adduser. Try making a local student user account.
+
+To connect to the user: use ssh username@ip_address -p port_number. The ip_address shows what you want to connect to. The -p port_number is used to specify what port you desire. For our student account, we would use: ssh student@127.0.0.1 -p 2222. The 127.0.0.1 ip address is a standard local ip address that always means local host or the same computer you are currently on. The -p 2222 flag shows you to connect to port 2222. When vagrant setup the virtual machine it automatically setup this port on the local machine to automatically forward to the virtual machine. If you don't know the correct port you may not have to specify it to login. The sudo password for new accounts is the standard password that they have set. You may have to add the user to the sudoers file (/etc/sudoers) or sudoers.d directory (/etc/sudoers.d). 
+
+Another Authentication Method:
+Another method to for authentication is to use public and private key encryption.
+TO generate a key pair use: ssh-keygen. You wull first be asked to give a filename and what directory. /Users/Udacity/.ssh/linuxCourse. To install your ssh keys: first login to your users and then create a .ssh folder within home directory. Then create a new file called authorized_keys within the .ssh folder (touch .ssh/authorized_keys). This file shows all the keys that this account can use for authentication with one key per line. Open the .pub file created from the ssh-keygen command and copy that key into the authorized_keys file. Now set permissions onto the .ssh folder using: chmod 700 .ssh and chmod 644 .ssh/authorized_keys
