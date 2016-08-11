@@ -109,3 +109,6 @@ To allow ssh you can use: sudo ufw allow ssh, but remember that we are using a v
 To allow basic http server: sudo ufw allow www
 
 To enable firewall: sudo ufw enable
+Doing this means that whatever rules you have setup will be in effect. If you lose connection to ssh that means you messed up some rules. Some cloud providers do offer way to regain access through external control panel.
+
+Check status to see what firewalls that are active.
