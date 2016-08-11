@@ -64,6 +64,8 @@ Another Authentication Method:
 Another method to for authentication is to use public and private key encryption.
 TO generate a key pair use: ssh-keygen. You wull first be asked to give a filename and what directory. /Users/Udacity/.ssh/linuxCourse. To install your ssh keys: first login to your users and then create a .ssh folder within home directory. Then create a new file called authorized_keys within the .ssh folder (touch .ssh/authorized_keys). This file shows all the keys that this account can use for authentication with one key per line. Open the .pub file created from the ssh-keygen command and copy that key into the authorized_keys file. Now set permissions onto the .ssh folder using: chmod 700 .ssh and chmod 644 .ssh/authorized_keys
 
+Note: chmod changes file permissions.
+
 To force key based authentication:
 edit the sshd_config file (/etc/ssh/sshd_config) using sudo nano /etc/ssh/sshd_config. Change  PasswordAuthentication to no and save. Then you need to restart service so it re-reads that configuration file:  sudo service ssh restart
 
@@ -75,4 +77,17 @@ The second set is for group.
 The third is for everyone.
 
 If the first set was rw-. This would mean that the owner can read and write the file. The - would mean that the owner cannot execute the file. IF the owner could execute the file it would look like: rwx.
+
+To change permissions using octal form:
+r has a value of 4
+w has a value of 2
+x has a value of 1
+no permissions is 0
+By adding numbers together we end up with full set of permissions to apply.
+Thus, to represent read and execute permissions we would assign a value of 5 (4+1=5)
+If our file was: rw- r-- r--, this would give a value of 6 4 4 thus the permissions of the file could be represented by 644.
+
+To change a files group or owner:
+chown - for owners (sudo chown owner_name file_name, ex: sudo chown root .bash_history)
+chgrp - for groups (sudo chgrp group_name file_name, ex: sudo chgrp root .bash_history)
 
