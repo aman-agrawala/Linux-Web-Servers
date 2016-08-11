@@ -91,3 +91,21 @@ To change a files group or owner:
 chown - for owners (sudo chown owner_name file_name, ex: sudo chown root .bash_history)
 chgrp - for groups (sudo chgrp group_name file_name, ex: sudo chgrp root .bash_history)
 
+Intro to Firewalls and UFW:
+Various ports are associated with different application requests. Example: 80 is for http and 443 is for https.
+
+Ubuntu comes with a firewall called UFW but its not usually active. To see its status type: sudo ufw status.
+First add rules to firewall then turn it on.
+
+Establish this incoming default: sudo ufw default deny incoming
+Establish this outgoing default: sudo ufw default allow outgoing
+
+Double check status to make sure its off. If you were to turn your server on now then it would block all incoming connections including ssh and would be completely inaccessible to  you.
+
+Now you can start allowing the ports you know you need for the applications that the server will be supporting. 
+
+To allow ssh you can use: sudo ufw allow ssh, but remember that we are using a vagrant machine which setup port 2222 as the ssh port. So you will have to use: sudo ufw allow 2222/tcp, in order to allow tcp connections for ssh to actually work in our vagrant scenario
+
+To allow basic http server: sudo ufw allow www
+
+To enable firewall: sudo ufw enable
