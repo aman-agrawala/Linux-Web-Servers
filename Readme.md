@@ -3,15 +3,15 @@
 #URL: http://ec2-52-43-148-87.us-west-2.compute.amazonaws.com/home
 
 #List of installed applications:
-mutt
-apache2
-ibapach2-mod-wsgi
-postgresql
-git
-Flask
-sqlalchemy
-postgresql-contrib
-virtualenv
+1. mutt
+2. apache2
+3. ibapach2-mod-wsgi
+4. postgresql
+5. git
+6. Flask
+7. sqlalchemy
+8. postgresql-contrib
+9. virtualenv
 
 #Third Party resources:
 
