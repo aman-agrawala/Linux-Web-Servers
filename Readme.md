@@ -1,5 +1,7 @@
 #IP address: 52.43.148.87 SSH port: 2200
 
+# Grader sudo password is @man@gra
+
 #URL: http://ec2-52-43-148-87.us-west-2.compute.amazonaws.com/home
 
 #List of installed applications:
